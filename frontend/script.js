@@ -217,7 +217,7 @@ async function predictCrop() {
         };
 
         const response = await fetch(
-    "http://172.17.53.82:5000/predict",
+    "http://192.168.0.105:5000/predict",
             {
                 method: "POST",
                 headers: {
@@ -354,7 +354,7 @@ formData.append(
 
 
 fetch(
-    "http://172.17.53.82:5001/predict-soil",
+    "http://192.168.0.105:5001/predict-soil",
     {
         method: "POST",
         body: formData
