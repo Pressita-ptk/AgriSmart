@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AgriSmart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        AgriSmart
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="home.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="index.html">
+                Crop Predictor
+            </a>
+        </li>
+
+        <li>
+
+            <select
+                id="languageSwitcher"
+                onchange="changeLanguage()">
+
+                <option value="en">
+                    English
+                </option>
+
+                <option value="hi">
+                    हिन्दी
+                </option>
+
+                <option value="te">
+                    తెలుగు
+                </option>
+
+            </select>
+
+        </li>
+
+    </ul>
+
+</nav>
+<div class="marquee-container">
+
+    <div class="marquee-text">
+
+        AgriSmart - Har Kisaan Ka Smart Saathi - AI-Powered Soil Analysis - Smart Crop Recommendations
+
+    </div>
+
+</div>
+<div class="container">
+
+    <div class="header">
+
+    <h1>
+        AgriSmart
+    </h1>
+
+    <p class="tagline">
+        AI-Powered Soil Analysis & Crop Recommendation
+    </p>
+
+</div>
+
+    <div id="map"></div>
+
+    <div id="coords" class="weather-card">
+
+        Click anywhere on the map to fetch weather data
+
+    </div>
+
+    <div class="form-grid">
+<div>
+
+    <label>Soil Type</label>
+
+<select id="soilType" onchange="setSoilType()">
+
+    <option value="">Select Soil Type</option>
+
+    <option value="alluvial">Alluvial Soil</option>
+
+    <option value="black">Black Soil</option>
+
+    <option value="red">Red Soil</option>
+
+    <option value="laterite">Laterite Soil</option>
+
+    <option value="peat">Peat Soil</option>
+
+    <option value="yellow">Yellow Soil</option>
+
+    <option value="cinder">Cinder Soil</option>
+
+
+
+    </select>
+</div>
+        <div>
+            <label>Nitrogen</label>
+            <input id="n" value="90">
+        </div>
+
+        <div>
+            <label>Phosphorus</label>
+            <input id="p" value="42">
+        </div>
+
+        <div>
+            <label>Potassium</label>
+            <input id="k" value="43">
+        </div>
+
+        <div>
+            <label>Temperature</label>
+            <input id="temp" value="20.87">
+        </div>
+
+        <div>
+            <label>Humidity</label>
+            <input id="humidity" value="82">
+        </div>
+
+        <div>
+            <label>pH</label>
+            <input id="ph" value="6.5">
+        </div>
+
+        <div>
+            <label>Rainfall</label>
+            <input id="rainfall" value="202.9">
+        </div>
+
+    </div>
+<div class="camera-section">
+
+  <label>Soil Image</label>
+
+<div class="upload-buttons">
+
+    <button onclick="document.getElementById('cameraInput').click()">
+        Take Photo
+    </button>
+
+    <button onclick="document.getElementById('galleryInput').click()">
+        Choose From Gallery
+    </button>
+
+</div>
+    <input
+    type="file"
+    id="cameraInput"
+    accept="image/*"
+    capture="environment"
+    style="display:none;">
+
+    <input
+    type="file"
+    id="galleryInput"
+    accept="image/*"
+    style="display:none;">
+    <br><br>
+
+    <img
+        id="preview"
+        width="250"
+        style="display:none; border-radius:10px;">
+<h3 id="soilResult"></h3>
+</div>
+    <button id="predictBtn" onclick="predictCrop()">
+    Predict Crop
+</button>
+    <div id="result"></div>
+
+</div>
+
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
+<script src="translator.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+.venv/
+tfenv/
+.idea/
+
+__pycache__/
+*.pyc
+
+backend/uploads/
+
+*.h5
